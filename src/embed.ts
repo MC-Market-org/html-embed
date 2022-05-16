@@ -53,6 +53,8 @@ class Embed {
     let shard = node.getAttribute('shard') || 'https://e.widgetbot.io'
     const username = node.getAttribute('username')
     const avatar = node.getAttribute('avatar')
+    const contentHash = node.getAttribute('content-hash')
+    const theme = node.getAttribute('theme')
 
     if (!shard.startsWith('http')) shard = `https://${shard}`
     if (shard.endsWith('/')) shard = shard.substring(0, shard.length-1)
@@ -63,6 +65,10 @@ class Embed {
       username ? `&username=${username}` : ''
     }${
       avatar ? `&avatar=${avatar}` : ''
+    }${
+      contentHash ? `&contentHash=${contentHash}` : ''
+    }${
+      theme ? `&theme=${theme}` : ''
     }`
 
     const width = node.getAttribute('width')
